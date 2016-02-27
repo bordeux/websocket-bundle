@@ -141,3 +141,37 @@ class SimpleWebsocket extends Websocket
 
 }
 ```
+
+
+## Configuration init.d
+
+1. Edit  [sf-websocket.sh](https://github.com/bordeux/websocket-bundle/blob/master/Resources/init.d/sf-websocket.sh) from Resources/init.d
+2. Execute as root:
+```bash
+cp <your-path>/init.d/sf-websocket.sh /etc/init.d/sf-websocket
+chmod a+x /etc/init.d/sf-websocket
+update-rc.d sf-websocket defaults
+```
+
+
+## Connect
+
+```javascript
+var connection = new WebSocket('wss://localhost.org/ws/user/messages/5/a8f5f167f44f4964e6c998dee827110c/?lorem=95');
+
+// When the connection is open, send some data to the server
+connection.onopen = function () {
+	console.log("opened!");
+  connection.send('Ping'); // Send the message 'Ping' to the server
+};
+
+// Log errors
+connection.onerror = function (error) {
+  console.log('WebSocket Error ' + error);
+};
+
+// Log messages from the server
+connection.onmessage = function (e) {
+  console.log('Server: ' + e.data);
+};
+```
