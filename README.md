@@ -14,6 +14,21 @@ composer require bordeux/websocket-bundle
 php app/console bordeux:websocket:bundle
 ```
 
+## Edit Appkernel
+
+```php
+    public function registerBundles()
+    {
+        $bundles = array(
+			...
+            new Bordeux\WebsocketBundle\BordeuxWebsocketBundle(),
+			....
+        );
+
+        return $bundles;
+    }
+
+```
 
 ## Create Websocket Controller
 ```php
