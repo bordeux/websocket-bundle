@@ -20,7 +20,7 @@ php app/console bordeux:websocket:bundle
 <?php
 
 /**
- * File must be on <your-boundle>/Websocket/*Websocket.php
+ * File must be on <your-boundle>/Websocket/<your-name>Websocket.php
  */
 
 namespace Tattool\Bundle\MessagesBundle\Websocket;
