@@ -1,5 +1,5 @@
 # Symfony Websocket Bundle
-Symfony 3 Symfony bundle
+Simple and great websocket manager.
 
 
 ## Installation
@@ -152,6 +152,46 @@ cp <your-path>/init.d/sf-websocket.sh /etc/init.d/sf-websocket
 chmod a+x /etc/init.d/sf-websocket
 update-rc.d sf-websocket defaults
 ```
+
+
+## Configuration nginx proxy
+
+```nginx
+upstream websocketServers {
+    server 127.0.0.1:1337;
+    server 127.0.0.2:1337;
+    server 127.0.0.3:1337;
+    server 127.0.0.4:1337;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    ssl on;
+    ssl_certificate /www/cert/fullchain.pem;
+    ssl_certificate_key /www/cert/privkey.pem;
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers 'kEECDH+ECDSA+AES128 kEECDH+ECDSA+AES256 kEECDH+AES128 kEECDH+AES256 kEDH+AES128 kEDH+AES256 DES-CBC3-SHA +SHA !aNULL !eNULL !LOW !kECDH !DSS !MD5 !EXP !PSK !SRP !CAMELLIA !SEED';
+
+    server_name ws.localhost.org;
+	charset utf-8;
+	client_max_body_size 1M;
+
+	access_log  off;
+	error_log  /var/log/sf-websocket/error.log;
+
+    location / {
+        proxy_pass http://websocketServers;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+	}
+	
+}
+
+```
+
 
 
 ## Connect
