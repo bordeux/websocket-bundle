@@ -230,3 +230,6 @@ connection.onmessage = function (e) {
   console.log('Server: ' + e.data);
 };
 ```
+
+
+## !?!?!??!?! PROFIT !?!?!??!?!?
