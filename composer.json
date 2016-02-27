@@ -1,0 +1,31 @@
+{
+  "name": "bordeux/websocket-bundle",
+  "type": "symfony-bundle",
+  "description": "Symfony 3 Websocket bundle",
+  "keywords": [
+    "websocket",
+    "html5"
+  ],
+  "homepage": "http://bednaczyk.me/websocket-bundle",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Krzysztof Bednarczyk",
+      "email": "krzysztof@bednarczyk.me"
+    }
+  ],
+  "require": {
+    "cboden/ratchet": "^0.3.4"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Bordeux\\WebsocketBundle\\": ""
+    }
+  },
+  "extra": {
+    "branch-alias": {
+    }
+  }
+}
