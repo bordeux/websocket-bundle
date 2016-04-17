@@ -129,7 +129,7 @@ class ConnectionManager implements MessageComponentInterface
     {
         /** @var Client $client */
         $client = isset($conn->__bclient) ? $conn->__bclient : null;
-        if (!($client instanceof WebsocketInterface)) {
+        if (!($client instanceof Client)) {
             $conn->close();
             return;
         }
@@ -180,7 +180,7 @@ class ConnectionManager implements MessageComponentInterface
 
         /** @var Client $client */
         $client = isset($conn->__bclient) ? $conn->__bclient : null;
-        if (!($client instanceof WebsocketInterface)) {
+        if (!($client instanceof Client)) {
             $conn->close();
             return;
         }
