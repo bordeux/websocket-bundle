@@ -233,3 +233,8 @@ connection.onmessage = function (e) {
 
 
 ## !?!?!??!?! PROFIT !?!?!??!?!?
+
+
+
+Sponsors:
+[Kursy pierwszej pomocy - Katowice](https://www.p-med.pl/)
